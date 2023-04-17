@@ -1,0 +1,40 @@
+<div id="membres">
+    <h1>Rechercher un membre</h1>
+    <div class="search">
+        <form>
+            <label for="memberName">Nom du membre:</label>
+            <input type="text" name="memberName" id="memberName" placeholder="Entrez un nom">
+            <button type="submit" (click)="getMembers()">Rechercher</button>
+        </form>
+    </div>
+    <div class = "result">
+        <h2>Résultats de recherche:</h2>
+        <table>
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>MemberNo</th>
+                <th>Lieu d'origine</th>
+                <th>Type de personne</th>
+                <th>Âge</th>
+                <th>Adresse postale</th>
+                <th>Email</th>
+                <th>LicenseNo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let member of members">
+                <td>{{member.nom}}</td>
+                <td>{{member.memberNo}}</td>
+                <td>{{member.originPlace}}</td>
+                <td>{{member.personType}}</td>
+                <td>{{member.age}}</td>
+                <td>{{member.postalCode}}</td>
+                <td>{{member.emailAdress}}</td>
+                <td>{{member.licenseNo}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+</div>
