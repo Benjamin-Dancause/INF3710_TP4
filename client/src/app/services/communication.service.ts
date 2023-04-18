@@ -29,7 +29,7 @@ export class CommunicationService {
 
   public getAllMembers(): Observable<Membre[]> {
     return this.http
-    .get<Membre[]>(this.BASE_URL + `/allMembers`)
+    .get<Membre[]>(this.BASE_URL + `/members`)
     .pipe(catchError(this.handleError<Membre[]>("getAllMembers")));
   }
 

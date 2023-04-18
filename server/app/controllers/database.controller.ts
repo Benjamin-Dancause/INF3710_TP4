@@ -21,7 +21,7 @@ export class DatabaseController {
       });
     });
 
-    router.get("/allMembers", function (req, res) {
+    router.get("/members", function (req, res) {
       databaseService.getAllMembers().then((result) => {
         const response = result.rows;
         res.send(response);
