@@ -48,27 +48,21 @@ export class ReservationComponent implements OnInit {
 
 
   checkVehiculeAvailability(immatriculation:string):boolean {
-    console.log(immatriculation);
+    this.dateDebut = new Date(this.dateDebut);
+    this.dateFin = new Date(this.dateFin);
     for(let reservation of this.reservations) {
-      console.log('sandwich');
-      let test:Date = new Date(reservation.date_debut);
-      console.log(test.getDay());
-      console.log('sandwich');
-      console.log("WHAT IS THIS");
-      console.log(reservation.vehicule_desire);
-      // compare contre tous les vehicules reserver right now, mais on devrait comparer avec tous les vehicules disponibles
+      let testDateDebut:Date = new Date(reservation.date_debut);
+      let testDateFin:Date = new Date(reservation.date_fin);
       if (reservation.vehicule_desire == immatriculation) {
-        if (test.getDay() == this.dateDebut.getDay()) {
-          console.log("INSIDE IF");
-          console.log(reservation.date_debut.getDay());
+        if (testDateDebut.getDay() == this.dateDebut.getDay()) {
           if (reservation.heure_debut < this.heureDebut && this.heureFin > reservation.heure_debut) {
             return false;
           } else if (reservation.heure_fin > this.heureDebut) {
             return false;
           }
-        } else if (reservation.date_fin.getDay() > this.dateDebut.getDay()) {
+        } else if (testDateFin.getDay() > this.dateDebut.getDay()) {
           return false;
-        } else if (reservation.date_debut.getDay() < this.dateFin.getDay()) {
+        } else if (testDateDebut.getDay() < this.dateFin.getDay()) {
           return false;
         }
       }
@@ -130,7 +124,6 @@ export class ReservationComponent implements OnInit {
 
 
     this.checkReservation();
-    console.log(this.reservationValide)
     if (this.reservationValide) {
       this.sendReservation(reservation);
     }
