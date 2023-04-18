@@ -1,7 +1,8 @@
-.vert {
-    color: seagreen;
-}
 
 .rouge {
     color: red;
 }
+
+th, td {
+    padding: 15px;
+  }
