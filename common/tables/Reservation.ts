@@ -3,9 +3,9 @@ export interface Reservation {
     emplacement: string;
     vehicule_desire: string;
     membre: string;
-    date_debut: string;
-    heure_debut: string;
-    date_fin: string; 
-    heure_fin: string;
+    date_debut: Date;
+    heure_debut: number;
+    date_fin: Date; 
+    heure_fin: number;
     exigence: string;
 }

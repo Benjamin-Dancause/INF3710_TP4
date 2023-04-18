@@ -42,6 +42,13 @@ export class DatabaseController {
       });
     });
 
+    router.post("/reservations", function (req, res) {
+      databaseService.sendReservation(req.body).then((result) => {
+        const response = result.rows;
+        res.send(response);
+      });
+    });
+
 
 
     return router;

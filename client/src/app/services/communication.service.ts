@@ -47,6 +47,13 @@ export class CommunicationService {
     .pipe(catchError(this.handleError<Reservation[]>("getAllReservations")));
   }
 
+  public sendReservation(reservation: Reservation): Observable<Reservation> {
+    return this.http
+    .post<Reservation>(this.BASE_URL + `/reservations`, reservation)
+    .pipe(catchError(this.handleError<Reservation>("sendReservation")));
+  }
+
+
   // À DÉCOMMENTER ET À UTILISER LORSQUE VOTRE COMMUNICATION EST IMPLÉMENTÉE
   private handleError<T>(
     request: string,
