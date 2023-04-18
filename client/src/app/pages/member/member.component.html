@@ -2,8 +2,8 @@
     <h1>Rechercher un membre</h1>
     <div class="search">
         <form>
-            <label for="memberName">Nom du membre:</label>
-            <input type="text" name="memberName" id="memberName" placeholder="Entrez un nom">
+            <label>Nom du membre:</label>
+            <input type="text" [(ngModel)]="nom" placeholder="Entrez un nom">
             <button type="submit" (click)="getMembers()">Rechercher</button>
         </form>
     </div>
@@ -13,25 +13,25 @@
             <thead>
               <tr>
                 <th>Nom</th>
-                <th>MemberNo</th>
+                <th>NoMembre</th>
                 <th>Lieu d'origine</th>
                 <th>Type de personne</th>
                 <th>Âge</th>
                 <th>Adresse postale</th>
-                <th>Email</th>
+                <th>Courriel</th>
                 <th>LicenseNo</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let member of members">
-                <td>{{member.nom}}</td>
-                <td>{{member.memberNo}}</td>
-                <td>{{member.originPlace}}</td>
-                <td>{{member.personType}}</td>
-                <td>{{member.age}}</td>
-                <td>{{member.postalCode}}</td>
-                <td>{{member.emailAdress}}</td>
-                <td>{{member.licenseNo}}</td>
+              <tr *ngFor="let membre of membres">
+                <td>{{membre.nom}}</td>
+                <td>{{membre.id_membre}}</td>
+                <td>{{membre.emplacement_origine}}</td>
+                <td>{{membre.est_physique ? 'Physique':'Morale'}}</td>
+                <td>{{membre.age}}</td>
+                <td>{{membre.adresse_postale}}</td>
+                <td>{{membre.courriel}}</td>
+                <td>{{membre.permis_de_conduire}}</td>
               </tr>
             </tbody>
           </table>

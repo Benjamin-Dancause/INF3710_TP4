@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { of, Observable, Subject } from "rxjs";
 import { catchError } from "rxjs";
-import { Member } from "../../../../common/tables/Member";
+import { Membre } from "../../../../common/tables/Membre";
 
 @Injectable()
 export class CommunicationService {
@@ -21,10 +21,16 @@ export class CommunicationService {
     this._listeners.next(filterBy);
   }
 
-  public getMember(name: string): Observable<Member[]> {
+  public getMember(name: string): Observable<Membre[]> {
     return this.http
-    .get<Member[]>(this.BASE_URL + `/members/${name}`)
-    .pipe(catchError(this.handleError<Member[]>("getMember")));
+    .get<Membre[]>(this.BASE_URL + `/members/${name}`)
+    .pipe(catchError(this.handleError<Membre[]>("getMember")));
+  }
+
+  public getAllMembers(): Observable<Membre[]> {
+    return this.http
+    .get<Membre[]>(this.BASE_URL + `/allMembers`)
+    .pipe(catchError(this.handleError<Membre[]>("getAllMembers")));
   }
 
   // À DÉCOMMENTER ET À UTILISER LORSQUE VOTRE COMMUNICATION EST IMPLÉMENTÉE
