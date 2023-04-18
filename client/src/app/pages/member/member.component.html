@@ -12,29 +12,44 @@
         <table>
             <thead>
               <tr>
-                <th>Nom</th>
                 <th>MemberNo</th>
-                <th>Lieu d'origine</th>
-                <th>Type de personne</th>
-                <th>Âge</th>
-                <th>Adresse postale</th>
-                <th>Email</th>
+                <th>Nom</th>
+                <th>Prénom</th>
                 <th>LicenseNo</th>
+                <th>Lieu d'origine</th>
+                <th>Coopératif</th>
+                <th>Autopartage</th>
+                <th>Personne physique</th>
+                <th> Mot de passe </th>
+                <th>Date de naissance</th>
+                <th>Adresse postale</th>
+                <th>Ville</th>
+                <th>Email</th>
+                <th>Nombre de parts</th>
+                <th>Numéro de compte</th>
+                <th>Nom de la banque</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let member of members">
-                <td>{{member.nom}}</td>
                 <td>{{member.memberNo}}</td>
-                <td>{{member.originPlace}}</td>
-                <td>{{member.personType}}</td>
-                <td>{{member.age}}</td>
-                <td>{{member.postalCode}}</td>
-                <td>{{member.emailAdress}}</td>
+                <td>{{member.lastName}}</td>
+                <td>{{member.firstName}}</td>
                 <td>{{member.licenseNo}}</td>
+                <td>{{member.originPlace}}</td>
+                <td>{{member.isCooperative}}</td>
+                <td>{{member.isAutoShared}}</td>
+                <td>{{member.isPhysic}}</td>
+                <td>{{member.password}}</td>
+                <td>{{member.birthday}}</td>
+                <td>{{member.postalCode}}</td>
+                <td>{{member.city}}</td>
+                <td>{{member.emailAdress}}</td>
+                <td>{{member.nbOfShares}}</td>
+                <td>{{member.bankAccountNo}}</td>
+                <td>{{member.bankName}}</td>
               </tr>
             </tbody>
           </table>
     </div>
-
 </div>
