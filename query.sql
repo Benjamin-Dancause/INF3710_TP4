@@ -93,7 +93,7 @@ WHERE v.immatriculation IN (SELECT immatriculation FROM berline)
 UNION
 SELECT 'mini-camionette' AS category, MAX(consommation_essence), AVG(consommation_essence), MIN(consommation_essence)
 FROM vehicule v
-WHERE v.immatriculation IN (SELECT immatriculation FROM mini_camionnette)
+WHERE v.immatriculation IN (SELECT immatriculation FROM mini_camionnette);
 
 --12. Retournez tous les membres qui ont réservé un véhicule à un endroit autre que leur
 --emplacement d’origine même si le type de véhicule existe à leur emplacement d’origine
