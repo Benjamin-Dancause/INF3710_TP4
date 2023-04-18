@@ -59,6 +59,7 @@ CREATE TABLE assurance
 CREATE TABLE membre
 (
 	id_membre VARCHAR(7) PRIMARY KEY,
+	nom VARCHAR(50),
 	permis_de_conduire VARCHAR(13), -- code sur le permis de conduire
 	emplacement_origine VARCHAR(7) REFERENCES emplacement(id_emplacement),
 	est_cooperatif BOOLEAN,
@@ -87,7 +88,7 @@ CREATE TABLE facture
 	id_facture VARCHAR(7) PRIMARY KEY,
 	cout_total NUMERIC,
 	date_echeance DATE,
-	est_payée BOOLEAN
+	est_payÃ©e BOOLEAN
 );
 
 CREATE TABLE utilisation
@@ -133,9 +134,3 @@ CREATE TABLE mini_camionnette(
 	Immatriculation VARCHAR(7) REFERENCES vehicule(immatriculation),
 	PRIMARY KEY(Immatriculation)
 );
-
-
-
-
-
-
