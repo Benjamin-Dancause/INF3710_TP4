@@ -45,7 +45,7 @@ export class DatabaseService {
 
   public async sendReservation(reservation: any): Promise<pg.QueryResult> {
     const client = await this.pool.connect();
-    const res = await client.query(`INSERT INTO reservation (id_reservation, emplacement, vehicule_desire, membre, date_debut, heure_debut, date_fin, heure_fin, exigence) VALUES ('${reservation.id_reservation}', '${reservation.emplacement}', '${reservation.vehicule_desire}', '${reservation.membre}', '${reservation.date_debut}', '${reservation.heure_debut}', '${reservation.date_fin}', '${reservation.heure_fin}', '${reservation.exigence}')`);
+    const res = await client.query(`INSERT INTO reservation (id_reservation, emplacement, vehicule_desire, membre, date_debut, heure_debut, date_fin, heure_fin, exigence) VALUES ('${reservation.id_reservation}', '${reservation.emplacement}', '${reservation.vehicule_desire}', '${reservation.membre}', '${reservation.date_debut}', '${reservation.heure_debut}:00', '${reservation.date_fin}', '${reservation.heure_fin}:00', '${reservation.exigence}');`);
     client.release();
     return res;
   }

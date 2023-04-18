@@ -98,7 +98,7 @@ export class ReservationComponent implements OnInit {
         heure_debut: this.heureDebut,
         date_fin: this.dateFin,
         heure_fin: this.heureFin,
-        exigence: this.exigence
+        exigence: this.exigence? this.exigence : ""
       };
 
 
