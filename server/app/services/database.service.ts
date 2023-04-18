@@ -28,4 +28,18 @@ export class DatabaseService {
     client.release();
     return res;
   }
+
+  public async getAllVehicles(): Promise<pg.QueryResult> {
+    const client = await this.pool.connect();
+    const res = await client.query("SELECT * FROM vehicule;");
+    client.release();
+    return res;
+  }
+
+  public async getAllReservations(): Promise<pg.QueryResult> {
+    const client = await this.pool.connect();
+    const res = await client.query("SELECT * FROM reservation;");
+    client.release();
+    return res;
+  }
 }

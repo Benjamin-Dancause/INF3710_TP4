@@ -4,6 +4,8 @@ import { Injectable } from "@angular/core";
 import { of, Observable, Subject } from "rxjs";
 import { catchError } from "rxjs";
 import { Membre } from "../../../../common/tables/Membre";
+import { Vehicule } from "../../../../common/tables/Vehicule";
+import { Reservation } from "../../../../common/tables/Reservation";
 
 @Injectable()
 export class CommunicationService {
@@ -31,6 +33,18 @@ export class CommunicationService {
     return this.http
     .get<Membre[]>(this.BASE_URL + `/members`)
     .pipe(catchError(this.handleError<Membre[]>("getAllMembers")));
+  }
+
+  public getAllVehicles(): Observable<Vehicule[]> {
+    return this.http
+    .get<Vehicule[]>(this.BASE_URL + `/vehicles`)
+    .pipe(catchError(this.handleError<Vehicule[]>("getAllVehicles")));
+  }
+
+  public getAllReservations(): Observable<Reservation[]> {
+    return this.http
+    .get<Reservation[]>(this.BASE_URL + `/reservations`)
+    .pipe(catchError(this.handleError<Reservation[]>("getAllReservations")));
   }
 
   // À DÉCOMMENTER ET À UTILISER LORSQUE VOTRE COMMUNICATION EST IMPLÉMENTÉE

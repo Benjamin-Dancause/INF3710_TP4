@@ -12,7 +12,6 @@ export class MemberComponent implements OnInit {
   public nom:string;
 
   public constructor(private communicationService: CommunicationService) {
-    //this.getMembers();
   }
 
   public ngOnInit(): void {

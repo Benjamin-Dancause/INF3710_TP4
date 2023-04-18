@@ -1,0 +1,51 @@
+<div id="reservations">
+    <h1>Réservations</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Numéro de réservation</th>
+                <th>Numéro de membre</th>
+                <th>Numéro de véhicule</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Exigence supplémentaire</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reservation of reservations">
+                <td>{{reservation.id_reservation}}</td>
+                <td>{{reservation.membre}}</td>
+                <td>{{reservation.vehicule_desire}}</td>
+                <td>{{reservation.date_debut}}</td>
+                <td>{{reservation.date_fin}}</td>
+                <td>{{reservation.exigence ? reservations.exigence:'Aucun'}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h1>Faire une réservation</h1>
+    <form>
+        <label for="membre">Numéro de membre : </label>
+        <select [(ngModel)]="membre">
+            <option *ngFor="let membre of membres" [value]="membre.id_membre">{{membre.id_membre}}</option>
+        </select>
+        <p></p>
+        <label for="vehicule_desire">véhicule désiré : </label>
+        <select [(ngModel)]="vehicule">
+            <option *ngFor="let vehicule of vehicules" [value]="vehicule.immatriculation">{{vehicule.immatriculation}}</option>
+        </select>
+        <p></p>
+        <span>Date début : </span>
+        <input type="date" [(ngModel)]="dateDebut" placeholder="Date de début">
+        <input type="time" [(ngModel)]="heureDebut" placeholder="Heure de début">
+        <p></p>
+        <span>Date fin : </span>
+        <input type="date" [(ngModel)]="dateFin" placeholder="Date de fin">
+        <input type="time" [(ngModel)]="heureFin" placeholder="Heure de fin">
+        <p></p>
+        <input maxlength="250" type="text" [(ngModel)]="exigence" placeholder="Exigence supplémentaire">
+        <p></p>
+        <button (click)="addReservation()">Ajouter</button>
+        <p *ngIf="">Réservation invalide</p>
+    </form>
+
+</div>

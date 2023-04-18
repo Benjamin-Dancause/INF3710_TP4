@@ -28,9 +28,19 @@ export class DatabaseController {
       });
     });
 
+    router.get("/vehicles", function (req, res) {
+      databaseService.getAllVehicles().then((result) => {
+        const response = result.rows;
+        res.send(response);
+      });
+    });
 
-
-
+    router.get("/reservations", function (req, res) {
+      databaseService.getAllReservations().then((result) => {
+        const response = result.rows;
+        res.send(response);
+      });
+    });
 
 
 
