@@ -1,3 +1,4 @@
+
 <div id="reservations">
     <h1>Réservations</h1>
     <table>
@@ -45,7 +46,8 @@
         <input maxlength="250" type="text" [(ngModel)]="exigence" placeholder="Exigence supplémentaire">
         <p></p>
         <button (click)="addReservation()">Ajouter</button>
-        <p *ngIf="">Réservation invalide</p>
+        <p class="rouge" *ngIf="!reservationValide">Réservation invalide</p>
+        <p class="vert" *ngIf="reservationValide">Réservation valide</p>
     </form>
 
 </div>
