@@ -5,4 +5,13 @@
 
 th, td {
     padding: 15px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
   }
+
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+}
