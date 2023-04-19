@@ -19,14 +19,14 @@ export class ReservationComponent implements OnInit {
   heureDebut: any;
   dateFin: Date;
   heureFin: any;
-  exigence: string = 'Aucune';
+  exigence: string;
   reservationValide: boolean;
 
   constructor(private communicationService: CommunicationService) {
     this.vehicule = '';
     this.membre = '';
     this.exigence = '';
-    this.reservationValide = false;
+    this.reservationValide = true;
     this.membres = [];
     this.reservations = [];
     this.vehicules = [];
@@ -34,9 +34,6 @@ export class ReservationComponent implements OnInit {
     this.heureDebut = new Date();
     this.dateFin = new Date();
     this.heureFin = new Date();
-    console.log('fuck s this');
-    console.log(this.dateDebut.getDay());
-    console.log(this.dateDebut);
   };
 
 
@@ -73,16 +70,19 @@ export class ReservationComponent implements OnInit {
           
   
   checkReservation(): void {
-
     this.dateDebut = new Date(this.dateDebut);
     this.dateFin = new Date(this.dateFin);
     if (this.vehicule != null && this.membre != null && this.dateDebut != null 
-      && this.heureDebut != null && this.dateFin != null && this.heureFin != null &&
+      && this.heureDebut != null && this.dateFin != null && this.heureFin != null && this.exigence != null &&
       (this.dateDebut.getDay() < this.dateFin.getDay() || (this.dateDebut.getDay() == this.dateFin.getDay() && this.heureDebut < this.heureFin))
       && (this.dateDebut.getDay() >= new Date().getDay() || (this.dateDebut.getDay() == new Date().getDay() && this.heureDebut >= new Date().getHours()))) {
         this.reservationValide = this.checkVehiculeAvailability(this.vehicule);
       }
+    else {
+      this.reservationValide = false;
+      this.exigence="";
     }
+  }
 
   addReservation():void {
     const next_id_num = this.reservations.length + 1;
@@ -125,15 +125,11 @@ export class ReservationComponent implements OnInit {
 
     this.checkReservation();
     if (this.reservationValide) {
-      this.sendReservation(reservation);
+      this.communicationService.sendReservation(reservation).subscribe(()=> {});
+      window.location.reload();
     }
   }      
 
-  sendReservation(reservation:Reservation){
-    this.communicationService.sendReservation(reservation).subscribe((res: Reservation)=> {
-      this.reservations.push(res);
-    });
-  }
     
   getVehicles():void {
     this.communicationService

@@ -44,7 +44,7 @@
         <p></p>
         <input maxlength="250" type="text" [(ngModel)]="exigence" placeholder="Exigence supplémentaire">
         <p></p>
-        <p class='rouge' *ngIf='!reservationValide'>Réservation invalide, changez les valeurs pour que ce soit cohérent</p>
+        <p class='rouge' *ngIf='!reservationValide'>Réservation invalide, changez les valeurs pour que ce soit cohérent. Si vous n'avez pas d'exigence, écrivez "aucun".</p>
         <button (click)="addReservation()">Ajouter</button>
     </form>
 
