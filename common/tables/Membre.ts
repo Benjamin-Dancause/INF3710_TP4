@@ -14,4 +14,5 @@ export interface Membre {
     nombre_de_part: number;
     numerobanque: string;
     comptedebanque: string;
+    cotisation: number;
 }

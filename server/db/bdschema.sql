@@ -72,7 +72,8 @@ CREATE TABLE membre
 	courriel VARCHAR(255),
 	nombre_de_part NUMERIC, -- seulement pour les membre cooperatif
 	numeroBanque VARCHAR(34),
-	compteDeBanque VARCHAR(50)
+	compteDeBanque VARCHAR(50),
+	cotisation_annuelle NUMERIC
 );
 
 CREATE TABLE accident

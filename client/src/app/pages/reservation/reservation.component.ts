@@ -19,7 +19,7 @@ export class ReservationComponent implements OnInit {
   heureDebut: any;
   dateFin: Date;
   heureFin: any;
-  exigence: string;
+  exigence: string = 'Aucune';
   reservationValide: boolean;
 
   constructor(private communicationService: CommunicationService) {

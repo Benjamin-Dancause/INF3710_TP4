@@ -76,14 +76,14 @@ INSERT INTO assurance VALUES ('0000013', '0000001', 'WBNE3XU', '2020-01-08', '20
 INSERT INTO assurance VALUES ('0000014', '0000001', 'O3VB5QC', '2020-01-08', '2023-07-08');
 
 
-INSERT INTO membre VALUES ('0000001', 'Bob', 'C618529848512', '0000003', 'true', 'true', 'true', 'mdp123', '1930-10-10', 'H3T1J4', 'Sherbrooke', 'xyz@yahoo.com', 5, '165681835486', 'Banque Nationale');
-INSERT INTO membre VALUES ('0000002', 'Micky', 'D673462848512', '0000003', 'true', 'true', 'false', 'mdp123', '1982-10-10', 'H3T1J4', 'Montréal', 'xycs@yahoo.com', 63, 'RBC Banque Royale');
-INSERT INTO membre VALUES ('0000003', 'Rose', 'S618527456512', '0000002', 'true', 'false', 'true', 'mdp123', '1985-10-10', 'H3T1J4', 'Sherbrooke', 'wew@yahoo.com', 54, 'Banque Nationale');
-INSERT INTO membre VALUES ('0000004', 'Daniel', 'K618529848745', '0000002', 'true', 'false', 'false', 'mdp123', '1977-10-10', 'H3T1J4', 'Sherbrooke', 'xy2az@yahoo.com', 96, 'Banque Nationale');
-INSERT INTO membre VALUES ('0000005', 'Tom', 'B618529234851', '0000002', 'false', 'true', 'true', 'mdp123', '1960-10-10', 'H3T1J4', 'Montréal', 'casf@yahoo.com', 0, 'RBC Banque Royale');
-INSERT INTO membre VALUES ('0000006', 'John', 'D612534238512', '0000003', 'false', 'true', 'false', 'mdp123', '1939-10-10', 'H3T1J4', 'Shawinigan', '3rt@yahoo.com', 0, 'RBC Banque Royale');
-INSERT INTO membre VALUES ('0000007', 'Barbara', 'B618552353252', '0000001', 'false', 'false', 'true', 'mdp123', '1959-10-10', 'H3T1J4', 'Montréal', 'daw@yahoo.com', 0, 'Banque Nationale');
-INSERT INTO membre VALUES ('0000008', 'Jules', 'T618529897376', '0000001', 'false', 'false', 'false', 'mdp123', '1931-10-10', 'H3T1J4', 'Magog', 'gr3@yahoo.com', 0, 'RBC Banque Royale');
+INSERT INTO membre VALUES ('0000001', 'Bob', 'C618529848512', '0000003', 'true', 'true', 'true', 'mdp123', '1930-10-10', 'H3T1J4', 'Sherbrooke', 'xyz@yahoo.com', 5, '165681835486', 'Banque Nationale', 1000);
+INSERT INTO membre VALUES ('0000002', 'Micky', 'D673462848512', '0000003', 'true', 'true', 'false', 'mdp123', '1982-10-10', 'H3T1J4', 'Montréal', 'xycs@yahoo.com', 63, 'RBC Banque Royale', 1000);
+INSERT INTO membre VALUES ('0000003', 'Rose', 'S618527456512', '0000002', 'true', 'false', 'true', 'mdp123', '1985-10-10', 'H3T1J4', 'Sherbrooke', 'wew@yahoo.com', 54, 'Banque Nationale', 1000);
+INSERT INTO membre VALUES ('0000004', 'Daniel', 'K618529848745', '0000002', 'true', 'false', 'false', 'mdp123', '1977-10-10', 'H3T1J4', 'Sherbrooke', 'xy2az@yahoo.com', 96, 'Banque Nationale', 1000);
+INSERT INTO membre VALUES ('0000005', 'Tom', 'B618529234851', '0000002', 'false', 'true', 'true', 'mdp123', '1960-10-10', 'H3T1J4', 'Montréal', 'casf@yahoo.com', 0, 'RBC Banque Royale', 1000);
+INSERT INTO membre VALUES ('0000006', 'John', 'D612534238512', '0000003', 'false', 'true', 'false', 'mdp123', '1939-10-10', 'H3T1J4', 'Shawinigan', '3rt@yahoo.com', 0, 'RBC Banque Royale', 1000);
+INSERT INTO membre VALUES ('0000007', 'Barbara', 'B618552353252', '0000001', 'false', 'false', 'true', 'mdp123', '1959-10-10', 'H3T1J4', 'Montréal', 'daw@yahoo.com', 0, 'Banque Nationale', 1000);
+INSERT INTO membre VALUES ('0000008', 'Jules', 'T618529897376', '0000001', 'false', 'false', 'false', 'mdp123', '1931-10-10', 'H3T1J4', 'Magog', 'gr3@yahoo.com', 0, 'RBC Banque Royale', 1000);
 
 
 INSERT INTO accident VALUES ('0000001', '2021-10-10', '01:01:01', '0000001');
