@@ -1,6 +1,6 @@
 -- DROP TABLE IF EXISTS AVENDRE CASCADE;
 
-DROP FUNCTION IF EXISTS mettre_en_vente() CASCADE;
+--DROP FUNCTION IF EXISTS mettre_en_vente() CASCADE;
 
 CREATE FUNCTION mettre_en_vente() RETURNS TRIGGER AS $testingValue$
 	BEGIN
@@ -53,22 +53,22 @@ EXECUTE PROCEDURE mettre_en_vente();
 
 
 --POUR VERIFIER LE TRIGGER
-
 UPDATE vehicule
-SET kilometrage=155000
+SET kilometrage=155
 WHERE immatriculation = 'XH1FF3O' OR immatriculation = 'CPDPJG7';
 
--- UPDATE vehicule
--- SET kilometrage = 400000
--- WHERE immatriculation = '4MMN9WP' OR immatriculation = 'AI1ENBM';
 
 UPDATE vehicule
-SET kilometrage = 300000
+SET kilometrage = 500
+WHERE immatriculation = '4MMN9WP' OR immatriculation = 'AI1ENBM';
+
+UPDATE vehicule
+SET kilometrage = 400000
 WHERE immatriculation = '4MMN9WP' OR immatriculation = 'AI1ENBM';
 
 
 UPDATE vehicule
-SET kilometrage=150
+SET kilometrage=155000
 WHERE immatriculation = 'XH1FF3O' OR immatriculation = 'CPDPJG7';
 
 
