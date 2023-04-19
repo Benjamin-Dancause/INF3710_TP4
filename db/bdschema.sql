@@ -89,7 +89,7 @@ CREATE TABLE facture
 	id_facture VARCHAR(7) PRIMARY KEY,
 	cout_total NUMERIC,
 	date_echeance DATE,
-	est_payÃ©e BOOLEAN
+	est_paye BOOLEAN
 );
 
 CREATE TABLE utilisation

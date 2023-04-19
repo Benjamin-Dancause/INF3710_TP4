@@ -45,21 +45,23 @@ export class ReservationComponent implements OnInit {
 
 
   checkVehiculeAvailability(immatriculation:string):boolean {
-    this.dateDebut = new Date(this.dateDebut);
-    this.dateFin = new Date(this.dateFin);
+
     for(let reservation of this.reservations) {
+
       let testDateDebut:Date = new Date(reservation.date_debut);
       let testDateFin:Date = new Date(reservation.date_fin);
       if (reservation.vehicule_desire == immatriculation) {
-        if (testDateDebut.getDay() == this.dateDebut.getDay()) {
-          if (reservation.heure_debut < this.heureDebut && this.heureFin > reservation.heure_debut) {
+        if (testDateDebut == this.dateDebut) {
+          if (reservation.heure_debut < this.heureFin && this.heureDebut < reservation.heure_debut) {
             return false;
-          } else if (reservation.heure_fin > this.heureDebut) {
+          } else if (this.heureDebut > reservation.heure_debut && this.heureDebut < reservation.heure_fin) {
             return false;
           }
-        } else if (testDateFin.getDay() > this.dateDebut.getDay()) {
+        } 
+        else if (testDateDebut< this.dateFin && this.dateDebut < testDateDebut) {
           return false;
-        } else if (testDateDebut.getDay() < this.dateFin.getDay()) {
+        }
+        else if (this.dateDebut > testDateDebut && this.dateDebut < testDateFin) {
           return false;
         }
       }
@@ -72,11 +74,14 @@ export class ReservationComponent implements OnInit {
   checkReservation(): void {
     this.dateDebut = new Date(this.dateDebut);
     this.dateFin = new Date(this.dateFin);
+
+
     if (this.vehicule != null && this.membre != null && this.dateDebut != null 
-      && this.heureDebut != null && this.dateFin != null && this.heureFin != null && this.exigence != null &&
-      (this.dateDebut.getDay() < this.dateFin.getDay() || (this.dateDebut.getDay() == this.dateFin.getDay() && this.heureDebut < this.heureFin))
-      && (this.dateDebut.getDay() >= new Date().getDay() || (this.dateDebut.getDay() == new Date().getDay() && this.heureDebut >= new Date().getHours()))) {
+      && this.heureDebut != null && this.dateFin != null && this.heureFin != null &&
+      (this.dateDebut < this.dateFin|| (this.dateDebut === this.dateFin&& this.heureDebut < this.heureFin))
+      && (this.dateDebut >= new Date() || (this.dateDebut === new Date() && this.heureDebut >= new Date().getHours()))) {
         this.reservationValide = this.checkVehiculeAvailability(this.vehicule);
+
       }
     else {
       this.reservationValide = false;
@@ -122,14 +127,18 @@ export class ReservationComponent implements OnInit {
         exigence: this.exigence? this.exigence : ""
       };
 
-
     this.checkReservation();
     if (this.reservationValide) {
-      this.communicationService.sendReservation(reservation).subscribe(()=> {});
-      window.location.reload();
+      this.sendReservation(reservation);
     }
   }      
 
+  sendReservation(reservation:Reservation){
+    this.communicationService.sendReservation(reservation).subscribe((res: Reservation)=> {
+      this.reservations.push(res);
+      window.location.reload();
+    });
+  }
     
   getVehicles():void {
     this.communicationService

@@ -7,7 +7,9 @@
                 <th>Numéro de membre</th>
                 <th>Numéro de véhicule</th>
                 <th>Date de début</th>
+                <th>Heure de debut</th>
                 <th>Date de fin</th>
+                <th>Heure de fin</th>
                 <th>Exigence supplémentaire</th>
             </tr>
         </thead>
@@ -16,8 +18,10 @@
                 <td>{{reservation.id_reservation}}</td>
                 <td>{{reservation.membre}}</td>
                 <td>{{reservation.vehicule_desire}}</td>
-                <td>{{reservation.date_debut}}</td>
-                <td>{{reservation.date_fin}}</td>
+                <td>{{reservation.date_debut | slice:0:10}}</td>
+                <td>{{reservation.heure_debut}}</td>
+                <td>{{reservation.date_fin| slice:0:10}}</td>
+                <td>{{reservation.heure_fin}}</td>
                 <td>{{reservation.exigence}}</td>
             </tr>
         </tbody>
@@ -44,7 +48,7 @@
         <p></p>
         <input maxlength="250" type="text" [(ngModel)]="exigence" placeholder="Exigence supplémentaire">
         <p></p>
-        <p class='rouge' *ngIf='!reservationValide'>Réservation invalide, changez les valeurs pour que ce soit cohérent. Si vous n'avez pas d'exigence, écrivez "aucun".</p>
+        <p class='rouge' *ngIf='!reservationValide'>Réservation invalide, changez les valeurs pour que ce soit cohérent.</p>
         <button (click)="addReservation()">Ajouter</button>
     </form>
 
