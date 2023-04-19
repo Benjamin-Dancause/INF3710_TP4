@@ -1,4 +1,3 @@
-// À DÉCOMMENTER ET À UTILISER LORSQUE VOTRE COMMUNICATION EST IMPLÉMENTÉE
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { of, Observable, Subject } from "rxjs";
@@ -9,7 +8,6 @@ import { Reservation } from "../../../../common/tables/Reservation";
 
 @Injectable()
 export class CommunicationService {
-  // À DÉCOMMENTER ET À UTILISER LORSQUE VOTRE COMMUNICATION EST IMPLÉMENTÉE
   private readonly BASE_URL: string = "http://localhost:3000/database";
   public constructor(private readonly http: HttpClient) {}
 
@@ -54,7 +52,6 @@ export class CommunicationService {
   }
 
 
-  // À DÉCOMMENTER ET À UTILISER LORSQUE VOTRE COMMUNICATION EST IMPLÉMENTÉE
   private handleError<T>(
     request: string,
     result?: T
